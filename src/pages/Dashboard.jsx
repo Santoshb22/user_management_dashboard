@@ -1,29 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Filter from '../components/filter'
 import AddUserModal from '../components/AddUserModal';
+import { UserContext } from '../contextApi/UserContext';
 
 const Dashboard = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const { users, loading } = useContext(UserContext);
   const [visibleUsers, setVisibleUsers] = useState(10);
   const currentUsers = users.slice(0, visibleUsers);
-
-  const usersMockAPI = import.meta.env.VITE_USERS_API;
-
-  useEffect(() => {
-    ( async() => {
-      try {
-        setLoading(true);
-        const res = await fetch(`${usersMockAPI}`);
-        const data = await res.json();
-        setUsers(data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    })()
-  }, [])
 
   if(loading) {
     return (
