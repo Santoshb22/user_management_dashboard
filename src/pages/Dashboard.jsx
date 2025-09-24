@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react'
-import Filter from '../components/filter'
+import Filter from '../components/Filter'
 import { UserContext } from '../contextApi/UserContext';
 import AddUserModal from '../components/AddUserModal';
 
