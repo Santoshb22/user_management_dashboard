@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../contextApi/UserContext'
+import { validateForm } from '../utils/validateForm';
 
 const AddUserModal = () => {
   const {
@@ -17,6 +18,7 @@ const AddUserModal = () => {
     username: "",
     email: ""
   })
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -49,6 +51,13 @@ const AddUserModal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const error = validateForm(formData);
+    if (error) {
+      setErrorMessage(error.message); 
+      return;
+    }
+    setErrorMessage("");
 
     if (isEdit) {
       await editUser(userIdToEdit, formData);
@@ -114,9 +123,11 @@ const AddUserModal = () => {
         required
       />
 
+      {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
+
       <button
         type="submit"
-        className="bg-slate-900 text-white py-2 rounded hover:bg-blue-600"
+        className="bg-slate-900 text-white py-2 rounded hover:bg-black"
       >
         {isEdit? "Save Edits" : "Add User"}
       </button>
