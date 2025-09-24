@@ -6,7 +6,7 @@ import Header from './components/Header'
 
 const App = () => {
   return (
-    <div className='font-mono text-slate-900 px-4'>
+    <div className='font-mono text-slate-900 px-1 sm:px-4 text-sm sm:text-lg'>
       <Header />
       <Routes>
         <Route index element = {<Dashboard/>} />

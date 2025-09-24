@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { UserContext } from '../contextApi/UserContext'
 
 const Filter = () => {
   const {setShowAddUserModal, showAddUserModal, searchText, setSearchText} = useContext(UserContext);
 
   return (
-    <div className='flex justify-between'>
+    <div className='flex flex-col gap-2 sm:gap-0 sm:flex-row justify-between'>
         <div className='flex items-center rounded-2xl border px-4 py-1'>
             <label 
             className='text-gray-500'
@@ -27,7 +27,7 @@ const Filter = () => {
 
         <button 
         onClick={() => setShowAddUserModal(!showAddUserModal)}
-        className='flex  items-center gap-2 bg-slate-900 text-white px-4 py-1 rounded-2xl'>
+        className='flex items-center gap-2 bg-slate-900 text-white px-4 py-1 rounded-2xl w-fit'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>

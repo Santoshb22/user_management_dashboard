@@ -31,14 +31,14 @@ const Dashboard = () => {
     )
   } else {
       return (
-      <div className='mt-16 relative'>
+      <div className='mt-6 md:mt-12 lg:mt-16 relative'>
         <Filter />
         {
           <div className={`absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${showAddUserModal ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
             <AddUserModal />
           </div>
         }
-        <hr className='mt-6 mb-2' />
+        <hr className='mt-4 sm:mt-6 mb-2' />
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-300">
             <thead>
@@ -66,7 +66,7 @@ const Dashboard = () => {
                     <td className="border px-4 py-2">{user.name}</td>
                     <td className="border px-4 py-2">{user.username}</td>
                     <td className="border px-4 py-2">{user.email}</td>
-                    <td className="border px-4 py-2">
+                    <td className="border md:px-4 md:py-2 ">
                       <button 
                       onClick={() => {
                         setUserIdToEdit(user.id);
