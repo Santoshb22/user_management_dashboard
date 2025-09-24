@@ -6,8 +6,19 @@ import AddUserModal from '../components/AddUserModal';
 const Dashboard = () => {
   const { users, loading } = useContext(UserContext);
   const [visibleUsers, setVisibleUsers] = useState(10);
-  const currentUsers = users.slice(0, visibleUsers);
-  const {showAddUserModal, setShowAddUserModal, setUserIdToEdit, deleteUser, setIsEdit} = useContext(UserContext);
+  const {showAddUserModal, setShowAddUserModal, setUserIdToEdit, deleteUser, setIsEdit, searchText} = useContext(UserContext);  
+
+  const filteredUsers = users.filter(user => {
+    const text = searchText.toLowerCase();
+    return (
+    user.id.toString().includes(text) ||
+    user.name.toLowerCase().includes(text) ||
+    user.username.toLowerCase().includes(text) ||
+    user.email.toLowerCase().includes(text)
+    )
+  })
+
+  const currentUsers = filteredUsers.slice(0, visibleUsers);
 
   if(loading) {
     return (

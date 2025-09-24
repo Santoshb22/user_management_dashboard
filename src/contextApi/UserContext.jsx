@@ -9,6 +9,7 @@ export const UserProvider = ({ children }) => {
   const usersAPI = import.meta.env.VITE_USERS_API;
   const [isEdit, setIsEdit] = useState(false);
   const [userIdToEdit, setUserIdToEdit] = useState("");
+  const [searchText, setSearchText] = useState("");
   const fetchUsers = async () => {
     try {
       setLoading(true);
@@ -89,6 +90,7 @@ const deleteUser = async (id) => {
       editUser, addUser, deleteUser,
       isEdit, setIsEdit,
       userIdToEdit, setUserIdToEdit,
+      searchText, setSearchText,
       }}>
       {children}
     </UserContext.Provider>
