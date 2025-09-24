@@ -53,8 +53,10 @@ const AddUserModal = () => {
     if (isEdit) {
       await editUser(userIdToEdit, formData);
       setIsEdit(false);
+      alert("User edit successfully");
     } else {
       await addUser(formData);
+      alert("User added successfully");
     }
 
     setFormData({ name: "", username: "", email: "" });
