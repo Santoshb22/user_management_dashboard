@@ -7,7 +7,7 @@ const Dashboard = () => {
   const { users, loading } = useContext(UserContext);
   const [visibleUsers, setVisibleUsers] = useState(10);
   const currentUsers = users.slice(0, visibleUsers);
-  const {showAddUserModal, setShowAddUserModal, setUserIdToEdit, deleteUser} = useContext(UserContext);
+  const {showAddUserModal, setShowAddUserModal, setUserIdToEdit, deleteUser, setIsEdit} = useContext(UserContext);
 
   if(loading) {
     return (
@@ -59,6 +59,7 @@ const Dashboard = () => {
                       <button 
                       onClick={() => {
                         setUserIdToEdit(user.id);
+                        setIsEdit(true);
                         setShowAddUserModal(true);
                       }}
                       className='edit_button text-blue-600 mr-4'>

@@ -32,6 +32,7 @@ const AddUserModal = () => {
       try {
         const res = await fetch(`${usersAPI}/${userIdToEdit}`);
         const data = await res.json();
+        console.log(data);
         setFormData({
           name: data.name,
           username: data.username,
@@ -65,7 +66,21 @@ const AddUserModal = () => {
       onSubmit={handleSubmit}
       className="p-6 my-4 bg-white rounded-2xl shadow-lg shadow-black flex flex-col gap-4 min-w-auto w-96 md:w-[600px]"
     >
-      <h2 className="text-xl font-semibold text-center">Add New User</h2>
+
+      <div className='flex items-center justify-between'>
+        <h2 className="text-xl font-semibold text-center">Add New User</h2>
+        <button 
+        onClick={() => {
+            setFormData({ name: "", username: "", email: "" });
+            setShowAddUserModal(false);
+            setIsEdit(false);
+        }}
+        className='text-red-600 font-extrabold'>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
 
       <input
         type="text"
@@ -101,7 +116,7 @@ const AddUserModal = () => {
         type="submit"
         className="bg-slate-900 text-white py-2 rounded hover:bg-blue-600"
       >
-        Add User
+        {isEdit? "Save Edits" : "Add User"}
       </button>
     </form>
   )
