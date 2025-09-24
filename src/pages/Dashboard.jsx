@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import Filter from '../components/filter'
-import AddUserModal from '../components/AddUserModal';
 import { UserContext } from '../contextApi/UserContext';
+import AddUserModal from '../components/AddUserModal';
 
 const Dashboard = () => {
   const { users, loading } = useContext(UserContext);
   const [visibleUsers, setVisibleUsers] = useState(10);
   const currentUsers = users.slice(0, visibleUsers);
-
+  const {showAddUserModal} = useContext(UserContext);
+  
   if(loading) {
     return (
       <div className='flex justify-center items-center h-[90vh]'>
@@ -17,8 +18,13 @@ const Dashboard = () => {
     )
   } else {
       return (
-      <div className='mt-16'>
+      <div className='mt-16 relative'>
         <Filter />
+        {
+          <div className={`absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${showAddUserModal ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
+            <AddUserModal />
+          </div>
+        }
         <hr className='mt-6 mb-2' />
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-300">

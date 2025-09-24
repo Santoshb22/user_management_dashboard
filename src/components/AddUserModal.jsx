@@ -36,7 +36,7 @@ const AddUserModal = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-6 bg-white rounded shadow-md flex flex-col gap-4 w-96"
+      className="p-6 my-4 bg-white rounded-2xl shadow-lg shadow-black flex flex-col gap-4 min-w-auto w-96 md:w-[600px]"
     >
       <h2 className="text-xl font-semibold text-center">Add New User</h2>
 
@@ -72,7 +72,7 @@ const AddUserModal = () => {
 
       <button
         type="submit"
-        className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+        className="bg-slate-900 text-white py-2 rounded hover:bg-blue-600"
       >
         Add User
       </button>

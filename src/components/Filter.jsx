@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { UserContext } from '../contextApi/UserContext'
 
 const Filter = () => {
-    
-    const hanldeAddUser = () => {
-    }
-    
+  const {setShowAddUserModal, showAddUserModal} = useContext(UserContext);
   return (
     <div className='flex justify-between'>
         <div className='flex items-center rounded-2xl border px-4 py-1'>
@@ -21,7 +19,7 @@ const Filter = () => {
         </div>
 
         <button 
-        onClick={hanldeAddUser}
+        onClick={() => setShowAddUserModal(!showAddUserModal)}
         className='flex  items-center gap-2 bg-slate-900 text-white px-4 py-1 rounded-2xl'>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
