@@ -1,16 +1,65 @@
-# React + Vite
+📋 User Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React-based web application to manage users.
+Users can be viewed, added, edited, deleted, searched, and filtered with smooth UI features like modals and pagination.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📑 View Users – Display a list of users with ID, Name, Username, Email, Profile picture.
 
-## React Compiler
+➕ Add User – Add a new user using a modal form.
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✏️ Edit User – Update existing user details.
 
-## Expanding the ESLint configuration
+🗑 Delete User – Remove a user from the list.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔍 Search & Filter – Search by ID, Name, Username, or Email.
+
+📄 Pagination – Load more users dynamically.
+
+🎨 UI/UX – Responsive, clean design with TailwindCSS.
+
+🛠 Tech Stack
+
+Frontend: React, TailwindCSS
+
+State Management: React Context API
+
+API: Mock API
+
+Deployment: Vercel (recommended)
+
+📂 Project Structure
+/src
+ ├── /components
+ │    ├── Filter.jsx
+ │    ├── AddUserModal.jsx
+ ├── /contextApi
+ │    └── UserContext.jsx
+ ├── App.jsx
+ └── main.jsx
+
+⚙️ Installation & Setup
+
+Clone the repo
+
+git clone https://github.com/Santoshb22/user_management_dashboard
+cd user-management-dashboard
+
+
+Install dependencies
+
+npm install
+
+
+Start the development server
+
+npm run dev
+
+
+Open in browser → http://localhost:5173
+
+Thank you.
+✨ Built with ❤️ using React & TailwindCSS
+
+Do you want me to also add a live demo section (with Vercel/Netlify link) so recruiters or reviewers can test it directly?
